@@ -3,8 +3,9 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
+const baseUrl = process.env.VERCEL_URL || "http://localhost:3000";
 async function getData() {
-  const res = await fetch("/api/posts", {
+  const res = await fetch(`${baseUrl}/api/posts`, {
     cache: "default",
     next: {
       revalidate: 20,
